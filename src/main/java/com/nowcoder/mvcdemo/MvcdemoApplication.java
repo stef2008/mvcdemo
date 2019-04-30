@@ -11,11 +11,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @SpringBootApplication
 public class MvcdemoApplication implements WebMvcConfigurer {
 
-    @Autowired
-    private MyInterceptor myInterceptor;
+//    @Autowired
+//    private MyInterceptor myInterceptor;
 
-    @Autowired
-    private LoginInterceptor loginInterceptor;
+//    @Autowired
+//    private LoginInterceptor loginInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
