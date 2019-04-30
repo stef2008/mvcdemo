@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>USER</title>
+</head>
+<body>
+    <form action="/demo/binder" method="post">
+        <p th:text="${message}"></p>
+        <p>
+            账号：<input type="text" name="username">
+        </p>
+        <p>
+            密码：<input type="password" name="password">
+        </p>
+        <p>
+            <input type="submit" value="保存">
+        </p>
+    </form>
+
+    <script src="/scripts/jquery-3.3.1.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nowcoder.mvcdemo.mapper.ItemMapper">
+
+    <resultMap id="itemCategoryMap" type="item">
+        <id property="id" column="id"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="name" column="name"/>
+        <result property="price" column="price"/>
+        <result property="stock" column="stock"/>
+        <result property="image" column="image"/>
+        <result property="detail" column="detail"/>
+        <result property="uploadTime" column="upload_time"/>
+        <association property="category" javaType="category">
+            <id property="id" column="category_id"/>
+            <result property="parentId" column="parent_id"/>
+            <result property="name" column="category_name"/>
+        </association>
+    </resultMap>
+
+    <select id="selectByPage" resultMap="itemCategoryMap">
+        select
+            i.id,
+            i.category_id,
+            i.name,
+            i.price,
+            i.stock,
+            i.image,
+            i.detail,
+            i.upload_time,
+            c.parent_id,
+            c.name as category_name
+        from item as i
+        left join category as c on c.id = i.category_id
+        order by id
+        limit #{offset}, #{limit}
+    </select>
+
+    <select id="selectCount" resultType="int">
+        select
+            count(id) as item_count
+        from item
+    </select>
+
+    <insert id="insert" parameterType="item" useGeneratedKeys="true" keyProperty="id">
+        insert into item values(null,#{categoryId},#{name},#{price},#{stock},#{image},#{detail},#{uploadTime})
+    </insert>
+
+    <select id="selectById" resultMap="itemCategoryMap">
+        select
+            i.id,
+            i.category_id,
+            i.name,
+            i.price,
+            i.stock,
+            i.image,
+            i.detail,
+            i.upload_time,
+            c.parent_id,
+            c.name as category_name
+        from item as i
+        left join category as c on c.id = i.category_id
+        where i.id = #{id}
+    </select>
+
+</mapper>

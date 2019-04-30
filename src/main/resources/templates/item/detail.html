@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品详情</title>
+    <link rel="stylesheet" th:href="@{/styles/common.css}">
+</head>
+<body>
+    <div th:replace="index::header"></div>
+    <div class="content" id="detail">
+        <input type="hidden" id="path" th:value="${item.image}">
+        <p th:text="${item.id}"></p>
+        <p th:text="${item.category.name}"></p>
+        <p th:text="${item.name}"></p>
+        <p th:text="${#numbers.formatDecimal(item.price,1,2)}"></p>
+        <p th:text="${item.stock}"></p>
+        <p th:text="${item.detail}"></p>
+        <p th:text="${#calendars.format(item.uploadTime,'yyyy-MM-dd HH:mm:ss')}"></p>
+    </div>
+    <div th:replace="index::footer"></div>
+
+    <script th:src="@{/scripts/jquery-3.3.1.js}"></script>
+    <script th:src="@{/scripts/item.js}"></script>
+</body>
+</html>

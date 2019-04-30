@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>牛客网</title>
+    <link rel="stylesheet" th:href="@{/styles/common.css}">
+</head>
+<body>
+    <div th:replace="index::header"></div>
+    <div class="content">
+        <p><img th:src="@{/images/404.png}"></p>
+    </div>
+    <div th:replace="index::footer"></div>
+</body>
+</html>

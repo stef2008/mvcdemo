@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品分类</title>
+    <link rel="stylesheet" th:href="@{/styles/common.css}">
+</head>
+<body>
+    <div th:replace="index::header"></div>
+    <div class="content">
+        <table border="1px" width="960px">
+            <tr>
+                <th>一级分类编号</th>
+                <th>一级分类名称</th>
+                <th>二级分类编号</th>
+                <th>二级分类名称</th>
+                <th>三级分类编号</th>
+                <th>三级分类名称</th>
+            </tr>
+            <tr th:each="c:${categorys}">
+                <td th:text="${c.id1}"></td>
+                <td th:text="${c.name1}"></td>
+                <td th:text="${c.id2}"></td>
+                <td th:text="${c.name2}"></td>
+                <td th:text="${c.id3}"></td>
+                <td th:text="${c.name3}"></td>
+            </tr>
+        </table>
+    </div>
+    <div th:replace="index::footer"></div>
+</body>
+</html>

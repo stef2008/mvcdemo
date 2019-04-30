@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>牛客网</title>
+    <link rel="stylesheet" th:href="@{/styles/common.css}">
+</head>
+<body>
+    <div class="header" th:fragment="header">
+        <a href="/">首页</a>
+        <a href="/user/toregister">注册</a>
+        <a href="/user/tologin">登录</a>
+        <a href="/category/list">商品分类</a>
+        <a href="/item/list">商品</a>
+        <a th:href="@{/user/logout}" th:if="${not #strings.isEmpty(session.username)}">注销</a>
+    </div>
+    <div class="content">
+        <p><img src="/images/logo.png"></p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+        <p>欢迎来到牛客网！</p>
+    </div>
+    <div class="footer" th:fragment="footer">
+        牛客科技 © 2018 All rights reserved
+    </div>
+</body>
+</html>

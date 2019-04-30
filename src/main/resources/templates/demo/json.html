@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON</title>
+</head>
+<body>
+    <p>
+        <input type="button" value="保存" onclick="save();">
+        <input type="button" value="提交" onclick="submit();">
+    </p>
+
+    <script src="/scripts/jquery-3.3.1.js"></script>
+    <script>
+        function save() {
+            var demo = {"id":1, "name":"zhangfei", "salary":15000.00, "createTime":"2019-03-14 14:53:36"};
+            $.ajax({
+                type : "post",
+                url : "/demo/params4",
+                contentType : "application/json",
+                data : JSON.stringify(demo),
+                success : function(data){
+                    console.log(data);
+                }
+            });
+        }
+        function submit() {
+            var demo = {"id":1, "name":"zhangfei", "salary":15000.00, "createTime":"2019-03-14 14:53:36"};
+            $.ajax({
+                type : "post",
+                url : "/demo/params5",
+                data : demo,
+                success : function(data){
+                    console.log(data);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

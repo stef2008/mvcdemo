@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nowcoder.mvcdemo.mapper.CategoryMapper">
+
+    <select id="selectByLevel" resultType="hashmap">
+        select
+            c1.id as id1,
+            c1.name as name1,
+            c2.id as id2,
+            c2.name as name2,
+            c3.id as id3,
+            c3.name as name3
+        from
+            category as c3
+            left join category c2 on c3.parent_id = c2.id
+            left join category c1 on c2.parent_id = c1.id
+        where
+            c1.parent_id is null
+            and c2.parent_id is not null
+            and c3.parent_id is not null
+    </select>
+
+    <select id="selectAll" resultType="category">
+        select id, parent_id as parentId, name from category order by id
+    </select>
+
+</mapper>

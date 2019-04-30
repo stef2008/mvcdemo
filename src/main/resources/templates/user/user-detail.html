@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户详情</title>
+</head>
+<body>
+    <p>编号：<span th:text="${user.id}"></span></p>
+    <p>账号：<span th:text="${user.username}"></span></p>
+    <p>密码：<span th:text="${user.password}"></span></p>
+    <p>邮箱：<span th:text="${user.email}"></span></p>
+    <p>电话：<span th:text="${user.mobile}"></span></p>
+    <p>创建时间：<span th:text="${#calendars.format(user.createTime,'yyyy-MM-dd HH:mm:ss')}"></span></p>
+</body>
+</html>

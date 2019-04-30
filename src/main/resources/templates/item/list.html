@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>商品列表</title>
+    <link rel="stylesheet" th:href="@{/styles/common.css}">
+</head>
+<body>
+    <div th:replace="index::header"></div>
+    <div class="content">
+        <p>
+            <a href="/item/toadd">增加</a>
+        </p>
+        <table border="1px" width="960px">
+            <tr>
+                <th>商品编号</th>
+                <th>分类名称</th>
+                <th>商品名称</th>
+                <th>商品单价</th>
+                <th>商品库存</th>
+                <th>操作</th>
+            </tr>
+            <tr th:each="i:${items}">
+                <td th:text="${i.id}"></td>
+                <td th:text="${i.category.name}"></td>
+                <td th:text="${i.name}"></td>
+                <td th:text="${i.price}"></td>
+                <td th:text="${i.stock}"></td>
+                <td>
+                    <a th:href="@{/item/detail(id=${i.id})}">详情</a>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <a th:href="@{/item/list(page=1,limit=10)}">首页</a>
+            <a th:href="@{/item/list(page=${page-1},limit=10)}" th:if="${page>1}">上一页</a>
+            <!--<a href="javascript:;" th:if="${page==1}">上一页</a>-->
+            <a th:href="@{/item/list(page=${page+1},limit=10)}" th:if="${page<total}">下一页</a>
+            <!--<a href="javascript:;" th:if="${page==total}">下一页</a>-->
+            <a th:href="@{/item/list(page=${total},limit=10)}">尾页</a>
+        </p>
+    </div>
+    <div th:replace="index::footer"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>增加用户</title>
+</head>
+<body>
+    <form action="/user/save" method="post">
+        <p>
+            编号：<input type="text" name="id" th:value="${user.id}" readonly="readonly">
+        </p>
+        <p>
+            账号：<input type="text" name="username" th:value="${user.username}">
+        </p>
+        <p>
+            密码：<input type="password" name="password" th:value="${user.password}">
+        </p>
+        <p>
+            邮箱：<input type="text" name="email" th:value="${user.email}">
+        </p>
+        <p>
+            电话：<input type="text" name="mobile" th:value="${user.mobile}">
+        </p>
+        <p>
+            注册时间：<input type="text" name="createTime" th:value="${#calendars.format(user.createTime,'yyyy-MM-dd HH:mm:ss')}">
+        </p>
+        <p>
+            <input type="submit" value="保存">
+        </p>
+    </form>
+</body>
+</html>
